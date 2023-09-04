@@ -84,13 +84,6 @@ if [[ ${ocp_minor_version} -ge 14 ]]; then
     [[ "${OS_IMAGE_MASTERS_PLAN}" != "" ]] && masters_plan="plan: ${OS_IMAGE_MASTERS_PLAN}"
   fi
 
-  # image plan is case-sensitive, make sure that publisher/offer/sku keep the same as plan 
-  if [[ "${OS_IMAGE_MASTERS_PLAN}" == "WithPurchasePlan" ]] || [[ "${OS_IMAGE_MASTERS_PLAN}" == "" ]]; then
-    imageInfo[0]=$(az vm image show --urn ${image} --query 'plan.publisher' -otsv)
-    imageInfo[1]=$(az vm image show --urn ${image} --query 'plan.product' -otsv)
-    imageInfo[2]=$(az vm image show --urn ${image} --query 'plan.name' -otsv)
-  fi
-
   # create a patch to set osImage for control plane instances
   PATCH_MASTER="/tmp/install-config-master-marketimage.yaml.patch"
   cat > "${PATCH_MASTER}" << EOF
