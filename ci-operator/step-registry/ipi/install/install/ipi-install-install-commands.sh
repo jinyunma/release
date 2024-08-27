@@ -732,6 +732,12 @@ case $JOB_NAME in
     # Do not retry because aws resources can collide when re-using installer assets
     max=1
     ;;
+  *azure*)
+    # Do not retry if installing cluster in existing resource group on azure platform
+    # because `cluster detroy` deletes resource group together
+    if grep -wq "resourceGroupName" ${SHARED_DIR}/install-config.yaml; then
+        max=1
+    fi
   *)
     max=3
     ;;
