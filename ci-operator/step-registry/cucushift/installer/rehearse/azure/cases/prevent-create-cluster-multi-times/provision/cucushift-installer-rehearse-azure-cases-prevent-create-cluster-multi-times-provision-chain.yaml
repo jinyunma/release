@@ -1,0 +1,9 @@
+chain:
+  as: cucushift-installer-rehearse-azure-cases-prevent-create-cluster-multi-times-provision
+  steps:
+  - chain: ipi-conf-azure
+  - ref: ipi-install-rbac
+  - ref: cucushift-installer-rehearse-azure-cases-prevent-create-cluster-multi-times-provision
+  documentation: |-
+    Create an IPI cluster, stop installer before bootstrap destroying, relaunch installer again,
+  installer should exit and prevent same cluster installation triggerred several times in parallel

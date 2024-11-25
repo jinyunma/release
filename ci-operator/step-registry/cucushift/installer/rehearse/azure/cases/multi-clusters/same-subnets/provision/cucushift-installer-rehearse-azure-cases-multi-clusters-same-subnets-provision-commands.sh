@@ -323,7 +323,9 @@ echo "Installing from release ${OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE}"
 
 check_result=0
 
-cluster_name="${NAMESPACE}-${UNIQUE_HASH}-second"
+# customize cluster name to include special char '.'
+# to cover test case OCP-68346
+cluster_name="${NAMESPACE}-${UNIQUE_HASH}.second"
 install_dir="/tmp/${cluster_name}"
 mkdir -p ${install_dir}
 cat "${SHARED_DIR}/install-config.yaml" > "${install_dir}/install-config.yaml"

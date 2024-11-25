@@ -1,0 +1,9 @@
+workflow:
+  as: cucushift-installer-rehearse-azure-cases-prevent-create-cluster-multi-times
+  steps:
+    pre:
+    - chain: cucushift-installer-rehearse-azure-cases-prevent-create-cluster-multi-times-provision
+    post:
+    - ref: ipi-deprovision-deprovision
+  documentation: |-
+    This is the workflow to trigger Prow's rehearsal test when submitting installer steps/chain/workflow

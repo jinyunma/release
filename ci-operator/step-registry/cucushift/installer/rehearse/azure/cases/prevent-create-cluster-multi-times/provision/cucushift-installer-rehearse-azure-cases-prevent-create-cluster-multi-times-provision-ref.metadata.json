@@ -1,0 +1,15 @@
+{
+	"path": "cucushift/installer/rehearse/azure/cases/prevent-create-cluster-multi-times/provision/cucushift-installer-rehearse-azure-cases-prevent-create-cluster-multi-times-provision-ref.yaml",
+	"owners": {
+		"approvers": [
+			"jianlinliu",
+			"yunjiang29",
+			"jinyunma"
+		],
+		"reviewers": [
+			"jianlinliu",
+			"yunjiang29",
+			"jinyunma"
+		]
+	}
+}
