@@ -110,7 +110,9 @@ EOF
 if [ -z "${OUTBOUND_TYPE}" ]; then
   echo "Outbound Type is not defined"
 else
-  if [ X"${OUTBOUND_TYPE}" == X"UserDefinedRouting" ] || [ X"${OUTBOUND_TYPE}" == X"NATGatewaySingleZone" ] || [ X"${OUTBOUND_TYPE}" == X"NatGateway" ]; then
+  OUTBOUND_TYPE_VALUE="UserDefinedRouting NATGatewaySingleZone NATGatewayMultiZone NatGateway"
+  #shellcheck disable=SC2076
+  if [[ " ${OUTBOUND_TYPE_VALUE} " =~ " ${OUTBOUND_TYPE} " ]]; then
     echo "Writing 'outboundType: ${OUTBOUND_TYPE}' to install-config"
     PATCH="${SHARED_DIR}/install-config-outboundType.yaml.patch"
     cat > "${PATCH}" << EOF
