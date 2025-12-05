@@ -1,4 +1,4 @@
-base_images:
+ase_images:
   ansible:
     name: "4.21"
     namespace: ocp
@@ -65,9 +65,11 @@ tests:
     allow_skip_on_success: true
     cluster_profile: azure-qe
     env:
-      CUSTOM_OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: registry.build07.ci.openshift.org/ci-ln-m9lc852/release:latest
+      CUSTOM_OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE: registry.build07.ci.openshift.org/ci-ln-v1hsqqk/release:latest
       FEATURE_GATES: '["AzureClusterHostedDNSInstall=true"]'
       FEATURE_SET: CustomNoUpgrade
+    test:
+    - ref: openshift-e2e-test
     workflow: cucushift-installer-rehearse-azure-ipi-custom-dns
 - as: installer-rehearse-ibmcloud
   cron: '@yearly'
