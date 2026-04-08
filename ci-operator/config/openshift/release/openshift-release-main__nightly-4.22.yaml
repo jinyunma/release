@@ -1650,7 +1650,6 @@ tests:
   steps:
     cluster_profile: azure-qe
     env:
-      AZURE_INSTALL_USE_MINIMAL_PERMISSIONS: "yes"
       COMPUTE_NODE_TYPE: Standard_D16s_v3
       CONTROL_PLANE_INSTANCE_TYPE: Standard_D16s_v3
       FEATURE_SET: TechPreviewNoUpgrade
